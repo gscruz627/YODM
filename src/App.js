@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
@@ -21,7 +21,7 @@ function App() {
   const finalTheme = useMemo( () => createTheme(themeSettings(theme)), [theme]);
   return (
     <div className="App">
-      <BrowserRouter>
+      <HashRouter>
         <ThemeProvider theme={finalTheme}>
           <CssBaseline>
             <Routes>
@@ -39,7 +39,7 @@ function App() {
             </Routes>
           </CssBaseline>
         </ThemeProvider>
-     </BrowserRouter>
+     </HashRouter>
         
     </div>
   )
