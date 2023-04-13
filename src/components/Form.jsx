@@ -27,6 +27,9 @@ const Form = () => {
   const [isPasswordMatch, setIsPasswordMatch] = useState(true);
   const [picture, setPicture] = useState(null);
   const [authValid, setAuthValid] = useState(true);
+  const [catpchaValid, setCaptchaValid] = useState(false);
+  const secretKey = process.env.HCAPTCHA_KEY;
+  const siteKey = process.env.HCAPTCHA_SITEKEY;
 
   const { palette } = useTheme();
   const dispatch = useDispatch();
@@ -94,7 +97,7 @@ const Form = () => {
     setPasswordVer(e.target.value);
   };
   const register = async () => {
-    if ((username && isEmailValid && isPasswordValid && isPasswordMatch)) {
+    if ((username && isEmailValid && isPasswordValid && isPasswordMatch && captchaValid)) {
       const formData = new FormData();
       formData.append("username", username);
       formData.append("password", password);
@@ -116,7 +119,7 @@ const Form = () => {
   };
 
   const login = async () => {
-    if (username && password) {
+    if (username && password && captchaValid) {
       const response = await fetch("https://yodm-server.onrender.com/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -143,6 +146,21 @@ const Form = () => {
     }
     setIsRegister(false);
   };
+  const verifyCaptcha = async (token) => {
+    const response = await fetch(
+      "https://hcaptcha.com/siteverify", {
+        method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    body: `response=${token}&secret=${secretKey}&sitekey=${siteKey}`
+      });
+    if(response.status === 200){
+      setCaptchaValid(true);
+    } else {
+      alert("Error with captcha try again");
+    }
+  }
   return (
     <form onSubmit={handleSubmit}>
       <Box
@@ -270,6 +288,7 @@ const Form = () => {
             required
           ></TextField>
         )}
+        <hCaptcha sitekey="3782bfe3-aff7-4227-80ac-227eb62beb46" onVerify={(token) => { verifyCaptcha(token)}}/>
         <Box width="100%" textAlign="center" gridColumn="span 2">
           <Button
             fullWidth
