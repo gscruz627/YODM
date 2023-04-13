@@ -27,7 +27,7 @@ const Form = () => {
   const [isPasswordMatch, setIsPasswordMatch] = useState(true);
   const [picture, setPicture] = useState(null);
   const [authValid, setAuthValid] = useState(true);
-  const [catpchaValid, setCaptchaValid] = useState(false);
+  const [captchaValid, setCaptchaValid] = useState(false);
   const secretKey = process.env.HCAPTCHA_KEY;
   const siteKey = process.env.HCAPTCHA_SITEKEY;
 
