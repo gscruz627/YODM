@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/YODM/static/css/main.3c3aad37.css",
-    "main.js": "/YODM/static/js/main.efb102a9.js",
+    "main.js": "/YODM/static/js/main.3a439a21.js",
     "index.html": "/YODM/index.html",
     "main.3c3aad37.css.map": "/YODM/static/css/main.3c3aad37.css.map",
-    "main.efb102a9.js.map": "/YODM/static/js/main.efb102a9.js.map"
+    "main.3a439a21.js.map": "/YODM/static/js/main.3a439a21.js.map"
   },
   "entrypoints": [
     "static/css/main.3c3aad37.css",
-    "static/js/main.efb102a9.js"
+    "static/js/main.3a439a21.js"
   ]
 }
