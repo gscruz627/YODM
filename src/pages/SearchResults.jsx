@@ -34,9 +34,6 @@ const SearchResults = () => {
       getUserResults();
     }
   }, []);
-  useEffect( () => {
-    console.log(results);
-  }, [results])
   return (
     <>
       <Navbar />
@@ -56,6 +53,7 @@ const SearchResults = () => {
               results.map((result) => (
                 
                 <CompWrapper
+                  key={result._id}
                   margin="2rem 0"
                   flexDirection="column"
                   boxShadow={`0px 0px 15px ${palette.neutral.light}`}

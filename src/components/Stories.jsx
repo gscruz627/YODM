@@ -138,13 +138,11 @@ const Stories = ({
       getTopicStories(filter);
     } else if (isAgree) {
       getAgreeStories(filter);
-      console.log("agree");
     } else if (isDisagree) {
       getDisagreeStories(filter);
     } else if (isSearch) {
       getSearchResults(filter);
     } else {
-      console.log("no nothing");
       getStories(filter);
     }
   }, []);
@@ -155,7 +153,6 @@ const Stories = ({
       getTopicStories(filter);
     } else if (isAgree) {
       getAgreeStories(filter);
-      console.log("agree");
     } else if (isDisagree) {
       getDisagreeStories(filter);
     } else if (isSearch) {
@@ -164,7 +161,6 @@ const Stories = ({
       getStories(filter);
     }
   }, [filter]);
-  console.log(isAgree);
   return (
     <Box flexBasis="50%">
       

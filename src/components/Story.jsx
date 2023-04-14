@@ -293,6 +293,7 @@ const Story = ({
       {!isTopic &&
         topic.map((name) => (
           <Typography
+            key={name}
             padding="0.1rem 0.3rem"
             color="#FFF"
             backgroundColor="#283593"

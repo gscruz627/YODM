@@ -128,7 +128,6 @@ const Login = () => {
       }
     }
     if (password && isPasswordValid) {
-      console.log("load here");
       responsePassword = await fetch(
         `https://yodm-server.onrender.com/auth/changePassword`,
         {
@@ -204,8 +203,6 @@ const Login = () => {
     if (response.status === 200) {
       dispatch(setLogout());
       navigate("/");
-    } else {
-      console.log(response.status);
     }
   };
   return (

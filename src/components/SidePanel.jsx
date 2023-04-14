@@ -38,9 +38,6 @@ const SidePanel = () => {
   useEffect(() => {
     getTopics();
   }, []);
-  useEffect(() => {
-    console.log(topics);
-  }, [topics]);
   return (
     <Box
       display="flex"
@@ -233,6 +230,7 @@ const SidePanel = () => {
           openTopics &&
           topics.map((topic) => (
             <Box
+              key={topic._id}
               display="flex"
               flexDirection="row"
               width="129.1%"

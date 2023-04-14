@@ -50,6 +50,7 @@ const ImagesStories = () => {
               (story) =>
                 story.imagePath && (
                   <img
+                    key={story._id}
                     src={story.imagePath}
                     width={isWideScreen ? "30%" : "100%"}
                     height={isWideScreen ? "170px" : ""}

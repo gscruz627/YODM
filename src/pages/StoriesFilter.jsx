@@ -9,7 +9,6 @@ import Following from "../components/Following";
 
 const StoriesFilter = ({isAgree, isDisagree}) => {
     const isWideScreen = useMediaQuery("(min-width:1000px)");
-    console.log(isAgree, isDisagree)
     return (
 <>
       <Navbar />
